@@ -1,0 +1,41 @@
+<launch>
+
+    <!-- load an empty world with 2 irobots facing each other a short distance apart -->
+
+    <env name="GAZEBO_MODEL_PATH" value="$(find irobotcreate)/models/"/>
+
+    <!-- load an empty gazebo world with standard physics -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find irobotcreate)/worlds/empty.world"/>
+    </include>
+
+
+
+    <!-- robot one -->
+    <group ns="robot1">
+    <node name="spawn_model"
+        pkg="gazebo_ros"
+        type="spawn_model"
+        args="-file $(find irobotcreate)/models/irobot/model_full.sdf -sdf -model iRobot1 -x 0 -y -1 -z 0"/>
+    <node name="random_move" pkg="irobotcreate" type="random_move"/>
+    </group>
+
+    <!-- robot two -->
+    <group ns="robot2">
+    <node name="spawn_model"
+        pkg="gazebo_ros"
+        type="spawn_model"
+        args="-file $(find irobotcreate)/models/irobot/model_full.sdf -sdf -model iRobot2 -x 0 -y 1 -z 0"/>
+    <node name="random_move" pkg="irobotcreate" type="random_move"/>
+    </group>
+
+    <!-- robot three -->
+    <group ns="robot3">
+    <node name="spawn_model"
+        pkg="gazebo_ros"
+        type="spawn_model"
+        args="-file $(find irobotcreate)/models/irobot/model_full.sdf -sdf -model iRobot3 -x 0 -y 0 -z 0"/>
+    <node name="random_move" pkg="irobotcreate" type="random_move"/>
+    </group>
+    
+</launch>

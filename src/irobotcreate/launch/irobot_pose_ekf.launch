@@ -1,0 +1,68 @@
+ <launch>
+
+ <env name="GAZEBO_MODEL_PATH" value="$(find irobotcreate)/models/"/>
+ <param name="robot_description" textfile="$(find irobotcreate)/models/irobot/model_full.urdf"/>
+
+ <!-- load an empty gazebo world with standard physics -->
+ <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find irobotcreate)/worlds/irobot_maze.world"/>
+ </include>
+
+ <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="-file $(find irobotcreate)/models/irobot/model_full.sdf -sdf -model iRobotCreate"/>
+ <node name ="tf_broadcast" pkg="irobotcreate" type="tf_broadcast"/>
+
+ <!--<node pkg="hratc2016_framework" type="gps_to_odom" name="gps_to_odom">
+    <remap from="gps/odom" to="irobot/gps_odom"/>
+    <remap from="gps/fix" to="irobot/gps_data"/>
+ </node>-->
+
+ <node pkg="irobotcreate" type="gps_to_zero_translate" name="gps_to_zero_translate"/>-->
+ <!--<node pkg="irobotcreate" type="gps_to_odom" name="gps_to_odom"/>-->
+
+
+ <!-- EKF for absolute localization (clearpath) -->
+ <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf" output="screen">
+     <!--<remap from="odom" to="encoder"/>-->
+     <param name="base_footprint_frame" value="base_link"/>
+     <remap from="odom" to="irobot/odom"/>
+     <remap from="imu_data" to="irobot/imu_data"/>
+     <remap from="gps" to="irobot/gps_odom"/>
+     <param name="output_frame" value="odom"/>
+     <param name="freq" value="10.0"/>
+     <param name="sensor_timeout" value="1.0"/>
+     <param name="odom_used" value="true"/>
+     <param name="imu_used" value="true"/>
+     <param name="imu_absolute" value="true"/>
+     <param name="vo_used" value="false"/>
+     <param name="gps_used" value="true"/>
+     <param name="debug" value="false"/>
+     <param name="self_diagnose" value="false"/>
+ </node>
+
+
+
+ <!-- EKF for absolute localization (clearpath)
+ <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf" output="screen">
+    <param name="base_footprint_frame" value="base_link"/>
+    <remap from="imu_data" to="irobot/imu_data"/>
+    <remap from="vo" to="irobot/gps_odom"/>
+    <remap from="odom" to="irobot/odom"/>
+    <param name="output_frame" value="odom_combined"/>
+    <param name="freq" value="100.0"/>
+    <param name="sensor_timeout" value="1.0"/>
+    <param name="odom_used" value="true"/>
+    <param name="imu_used" value="false"/>
+    <param name="imu_absolute" value="true"/>
+    <param name="vo_used" value="true"/>
+    <param name="gps_used" value="false"/>
+    <param name="debug" value="false"/>
+    <param name="self_diagnose" value="true"/>
+ </node>
+ -->
+
+
+
+
+
+
+ </launch>
