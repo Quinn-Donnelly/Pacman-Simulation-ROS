@@ -131,7 +131,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-      <static>1</static>
+      <static>0</static>
     </model>
     <model name='unit_box_2'>
       <pose>0 5 0.5 0 -0 0</pose>
@@ -185,7 +185,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-      <static>1</static>
+      <static>0</static>
     </model>
     <model name='unit_box_3'>
       <pose>5.5 0 0.5 0 -0 0</pose>
@@ -239,7 +239,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-      <static>1</static>
+      <static>0</static>
     </model>
     <model name='unit_box_4'>
       <pose>-5 2.5 0.5 0 -0 0</pose>
@@ -293,7 +293,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-      <static>1</static>
+      <static>0</static>
     </model>
     <model name='unit_box_5'>
       <pose>-5.5 -3 0.5 0 -0 0</pose>
@@ -347,7 +347,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-      <static>1</static>
+      <static>0</static>
     </model>
     <state world_name='default'>
       <sim_time>1350 881000000</sim_time>
@@ -520,7 +520,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-      <static>1</static>
+      <static>0</static>
     </model>
     <model name='unit_box_2_0'>
       <pose>0 -3.5 0.5 0 -0 0</pose>
@@ -574,7 +574,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-      <static>1</static>
+      <static>0</static>
     </model>
     <model name='unit_box_3_0'>
       <pose>0 3.5 0.5 0 -0 0</pose>
@@ -628,7 +628,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-      <static>1</static>
+      <static>0</static>
     </model>
     <model name='unit_box_4_0'>
       <pose>3.5 -2.5 0.5 0 -0 0</pose>
@@ -682,7 +682,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-      <static>1</static>
+      <static>0</static>
     </model>
     <model name='unit_box_5_0'>
       <pose>3.5 2.5 0.5 0 -0 0</pose>
@@ -736,7 +736,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-      <static>1</static>
+      <static>0</static>
     </model>
     <model name='unit_box_6'>
       <pose>4.5 0 0.5 0 -0 0</pose>
@@ -790,7 +790,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-      <static>1</static>
+      <static>0</static>
     </model>
   </world>
 </sdf>
