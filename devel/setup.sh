@@ -8,11 +8,7 @@
 
 # since this file is sourced either use the provided _CATKIN_SETUP_DIR
 # or fall back to the destination set at configure time
-<<<<<<< Updated upstream
 : ${_CATKIN_SETUP_DIR:=/home/dhroiden/Documents/college/3rdSem/introRobo/pacman/devel}
-=======
-: ${_CATKIN_SETUP_DIR:=/home/justinnunez/Documents/pacman/devel}
->>>>>>> Stashed changes
 _SETUP_UTIL="$_CATKIN_SETUP_DIR/_setup_util.py"
 unset _CATKIN_SETUP_DIR
 

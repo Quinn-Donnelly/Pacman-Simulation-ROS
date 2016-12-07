@@ -6,7 +6,7 @@
 
     <!-- Load the maze world with standard physics -->
     <include file="$(find irobotcreate)/launch/pacmaze.launch">
-        <arg name="world_name" value="$(find irobotcreate)/worlds/Pac_Man_Maze.world"/>
+        <arg name="world_name" value="$(find irobotcreate)/worlds/pacman_maze.world"/>
     </include>
 
 
