@@ -67,14 +67,14 @@ set(wasd_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(wasd_SOURCE_PREFIX /home/dhroiden/Documents/college/3rdSem/introRobo/pacman/src/wasd)
-  set(wasd_DEVEL_PREFIX /home/dhroiden/Documents/college/3rdSem/introRobo/pacman/devel)
+  set(wasd_SOURCE_PREFIX /home/quinn/Documents/groupProject/src/wasd)
+  set(wasd_DEVEL_PREFIX /home/quinn/Documents/groupProject/devel)
   set(wasd_INSTALL_PREFIX "")
   set(wasd_PREFIX ${wasd_DEVEL_PREFIX})
 else()
   set(wasd_SOURCE_PREFIX "")
   set(wasd_DEVEL_PREFIX "")
-  set(wasd_INSTALL_PREFIX /home/dhroiden/Documents/college/3rdSem/introRobo/pacman/install)
+  set(wasd_INSTALL_PREFIX /home/quinn/Documents/groupProject/install)
   set(wasd_PREFIX ${wasd_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(wasd_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/dhroiden/Documents/college/3rdSem/introRobo/pacman/devel/include " STREQUAL " ")
+if(NOT "/home/quinn/Documents/groupProject/devel/include " STREQUAL " ")
   set(wasd_INCLUDE_DIRS "")
-  set(_include_dirs "/home/dhroiden/Documents/college/3rdSem/introRobo/pacman/devel/include")
+  set(_include_dirs "/home/quinn/Documents/groupProject/devel/include")
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})
@@ -103,7 +103,7 @@ if(NOT "/home/dhroiden/Documents/college/3rdSem/introRobo/pacman/devel/include "
         message(FATAL_ERROR "Project 'wasd' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  Ask the maintainer 'dhroiden <dhroiden@todo.todo>' to fix it.")
       endif()
     else()
-      message(FATAL_ERROR "Project 'wasd' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/dhroiden/Documents/college/3rdSem/introRobo/pacman/src/wasd/${idir}'.  Ask the maintainer 'dhroiden <dhroiden@todo.todo>' to fix it.")
+      message(FATAL_ERROR "Project 'wasd' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/quinn/Documents/groupProject/src/wasd/${idir}'.  Ask the maintainer 'dhroiden <dhroiden@todo.todo>' to fix it.")
     endif()
     _list_append_unique(wasd_INCLUDE_DIRS ${include})
   endforeach()
@@ -122,7 +122,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/dhroiden/Documents/college/3rdSem/introRobo/pacman/devel/lib;/home/dhroiden/Documents/college/3rdSem/introRobo/pacman/devel/lib;/opt/ros/indigo/lib)
+    foreach(path /home/quinn/Documents/groupProject/devel/lib;/home/quinn/Documents/groupProject/devel/lib;/opt/ros/indigo/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

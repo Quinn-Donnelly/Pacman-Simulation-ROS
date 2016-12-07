@@ -10,8 +10,12 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   message_generation
+  sensor_msgs
+  cv_bridge
+  image_transport
 )
 
+find_package(OpenCV)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -202,3 +206,9 @@ add_executable(p_arbiter
 		include/package1/pacman_arbiter.h)
 target_link_libraries(p_arbiter ${catkin_LIBRARIES})
 add_dependencies(p_arbiter package1_generate_messages_cpp)
+
+add_executable(opencvTest 
+		src/opencvTest.cpp)
+include_directories(${OpenCV_INCLUDE_DIRS})
+target_link_libraries(opencvTest ${OpenCV_LIBRARIES})
+target_link_libraries(opencvTest ${catkin_LIBRARIES})
