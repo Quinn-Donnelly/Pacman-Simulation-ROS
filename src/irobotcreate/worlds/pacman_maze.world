@@ -242,7 +242,7 @@
       <static>1</static>
     </model>
     <model name='unit_box_4'>
-      <pose>-5 2.5 0.5 0 -0 0</pose>
+      <pose>-5 2.75 0.5 0 -0 0</pose>
       <link name='link'>
         <inertial>
           <mass>1</mass>
@@ -258,7 +258,7 @@
         <collision name='collision'>
           <geometry>
             <box>
-              <size>0.15 4 1</size>
+              <size>0.15 4.5 1</size>
             </box>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -275,7 +275,7 @@
         <visual name='visual'>
           <geometry>
             <box>
-              <size>0.15 4 1</size>
+              <size>0.15 4.5 1</size>
             </box>
           </geometry>
           <material>
@@ -296,7 +296,7 @@
       <static>1</static>
     </model>
     <model name='unit_box_5'>
-      <pose>-5.5 -3 0.5 0 -0 0</pose>
+      <pose>-5.5 -2.75 0.5 0 -0 0</pose>
       <link name='link'>
         <inertial>
           <mass>1</mass>
@@ -312,7 +312,7 @@
         <collision name='collision'>
           <geometry>
             <box>
-              <size>0.15 4 1</size>
+              <size>0.15 4.5 1</size>
             </box>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -329,7 +329,7 @@
         <visual name='visual'>
           <geometry>
             <box>
-              <size>0.15 4 1</size>
+              <size>0.15 4.5 1</size>
             </box>
           </geometry>
           <material>
@@ -350,9 +350,9 @@
       <static>1</static>
     </model>
     <state world_name='default'>
-      <sim_time>1350 881000000</sim_time>
-      <real_time>92 425286567</real_time>
-      <wall_time>1481102285 240481253</wall_time>
+      <sim_time>1539 342000000</sim_time>
+      <real_time>343 345380041</real_time>
+      <wall_time>1481126501 814909635</wall_time>
       <model name='ground_plane'>
         <pose>0 0 0 0 -0 0</pose>
         <link name='link'>
@@ -417,9 +417,9 @@
         </link>
       </model>
       <model name='unit_box_4'>
-        <pose>-5.13518 3.01512 0.5 0 -0 0</pose>
+        <pose>-5.13518 2.72795 0.5 0 -0 0</pose>
         <link name='link'>
-          <pose>-5.13518 3.01512 0.5 0 -0 0</pose>
+          <pose>-5.13518 2.72795 0.5 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -435,9 +435,9 @@
         </link>
       </model>
       <model name='unit_box_5'>
-        <pose>-5.08976 -3.01841 0.5 0 -0 0</pose>
+        <pose>-5.08976 -2.7493 0.5 0 -0 0</pose>
         <link name='link'>
-          <pose>-5.08976 -3.01841 0.5 0 -0 0</pose>
+          <pose>-5.08976 -2.7493 0.5 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -464,7 +464,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>4.64979 1.17555 3.62833 -0.159181 1.02447 -1.54786</pose>
+        <pose>-14.9044 -10.1823 34.8847 4.48864e-17 1.25647 0.20414</pose>
         <view_controller>orbit</view_controller>
       </camera>
     </gui>
