@@ -1,0 +1,53 @@
+<launch>
+
+    <!-- Load the maze world with the Pac-Man robot and ghost robots -->
+
+    <env name="GAZEBO_MODEL_PATH" value="$(find irobotcreate)/models/"/>
+
+    <!-- Load the maze world with standard physics -->
+    <include file="$(find irobotcreate)/launch/pacmaze.launch">
+        <arg name="world_name" value="$(find irobotcreate)/worlds/Pac_Man_Maze.world"/>
+    </include>
+
+
+
+    <!-- Pac-Man robot -->
+    <group ns="pacman">
+        <node name="spawn_model"
+            pkg="gazebo_ros"
+            type="spawn_model"
+            args="-file $(find irobotcreate)/models/irobot/model_pacman.sdf -sdf -model iRobot1 -x 3 -y 0 -z 0.5"/>
+        <node name ="tf_broadcast" pkg="irobotcreate" type="tf_broadcast"/>
+    </group>
+
+
+    <!-- Inky -->
+    <group ns="inky">
+    <node name="spawn_model"
+        pkg="gazebo_ros"
+        type="spawn_model"
+        args="-file $(find irobotcreate)/models/irobot/model_full.sdf -sdf -model iRobot2 -x -4 -y 4 -z 0.5"/>
+    <node name ="tf_broadcast" pkg="irobotcreate" type="tf_broadcast"/>
+    </group>
+
+
+    <!-- Blinky -->
+    <group ns="blinky">
+    <node name="spawn_model"
+        pkg="gazebo_ros"
+        type="spawn_model"
+        args="-file $(find irobotcreate)/models/irobot/model_full.sdf -sdf -model iRobot3 -x -3 -y 0 -z 0.5"/>
+    <node name ="tf_broadcast" pkg="irobotcreate" type="tf_broadcast"/>
+    </group>
+
+
+    <!-- Pinky -->
+    <group ns="pinky">
+    <node name="spawn_model"
+        pkg="gazebo_ros"
+        type="spawn_model"
+        args="-file $(find irobotcreate)/models/irobot/model_full.sdf -sdf -model iRobot3 -x -4 -y -4 -z 0.5"/>
+    <node name ="tf_broadcast" pkg="irobotcreate" type="tf_broadcast"/>
+    </group>
+
+</launch>
