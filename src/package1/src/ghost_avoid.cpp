@@ -38,8 +38,10 @@ void Behavior_Avoid::process_behavior() {
     if(this->left_path_blocked && this->right_path_blocked) {
         msg.active = true;
         if(this->left_laser_value < this->right_laser_value) {
+            msg.vel_fw = -AVOID_VELOCITY;
             msg.vel_turn = -AVOID_VELOCITY;
         } else {
+            msg.vel_fw = -AVOID_VELOCITY;
             msg.vel_turn = AVOID_VELOCITY;
         }
     } else if(this->left_path_blocked) {
