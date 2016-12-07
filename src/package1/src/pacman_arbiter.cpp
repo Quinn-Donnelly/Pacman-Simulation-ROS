@@ -1,4 +1,4 @@
-#include "arbiter.h"
+#include "pacman_arbiter.h"
 
 Arbiter::Arbiter() {
     //Set subscriptions & advertisement

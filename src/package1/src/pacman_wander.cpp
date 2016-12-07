@@ -1,4 +1,4 @@
-#include "wander.h"
+#include "pacman_wander.h"
 
 Behavior_Wander::Behavior_Wander() {
 	this->pub_arbiter = this->nh.advertise<wasd::behavior>("/behavior/wander",1);
