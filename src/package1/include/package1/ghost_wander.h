@@ -13,7 +13,8 @@ class Behavior_Wander {
     static constexpr double PROB_LEFT_DEFAULT = 0.25f;
     static constexpr double PROB_RIGHT_DEFAULT = 0.25f;
     static constexpr double PROB_FORWARD_DEFAULT = 0.5f;
-    static constexpr double WANDER_VELOCITY = 0.5f;
+    static constexpr double WANDER_VELOCITY = 0.05f;
+    static constexpr double WANDER_TURN = 0.01f;
 
 public:
     enum ACTIONS {TURN_LEFT, TURN_RIGHT, MOVE_FORWARD};

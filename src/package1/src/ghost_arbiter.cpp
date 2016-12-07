@@ -4,6 +4,7 @@ Arbiter::Arbiter() {
     //Set subscriptions & advertisement
     this->sub_bh_wander = this->nh.subscribe("behavior/wander", 1, &Arbiter::cb_bh_wander, this);
     this->sub_bh_avoid = this->nh.subscribe("behavior/avoid", 1, &Arbiter::cb_bh_avoid, this);
+    this->sub_bh_offset = this->nh.subscribe("behavior/offset", 1, &Arbiter::cb_bh_offset, this);
     this->pub_vel = this->nh.advertise<geometry_msgs::Twist>("irobot/cmd_vel", 1);
 }
 
@@ -19,6 +20,17 @@ void Arbiter::process_behaviors() {
     }
     else {
         stop_robot();
+    }
+}
+
+void Arbiter::cb_bh_offset(const package1::behavior::ConstPtr &msg){
+    if(msg->active){
+        std::cout << *msg << std::endl;
+        package1::behavior new_msg;
+        int offset = msg->vel_turn;
+        new_msg.vel_turn = -0.003 * offset;
+        new_msg.vel_fw = 1;
+        this->behavior_queue.push(std::pair<int, package1::behavior>(PRIORITY_OFFSET, new_msg));
     }
 }
 

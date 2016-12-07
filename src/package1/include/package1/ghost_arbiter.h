@@ -10,6 +10,7 @@
 #define BH_ARBITER_RATE 10
 #define PRIORITY_WANDER 0
 #define PRIORITY_AVOID 1
+#define PRIORITY_OFFSET 3
 
 //comparison function for priority queue
 //function is outside of class because it was simpler
@@ -37,12 +38,14 @@ class Arbiter {
     //Subscribers to behaviors, one callback for every behavior that is added
     ros::Subscriber sub_bh_wander;
     ros::Subscriber sub_bh_avoid;
+    ros::Subscriber sub_bh_offset;
     //Publisher to cmd_vel to move the robot
     ros::Publisher pub_vel;
 
     //Behavior Callbacks
     void cb_bh_wander(const package1::behavior::ConstPtr& msg);
     void cb_bh_avoid(const package1::behavior::ConstPtr& msg);
+    void cb_bh_offset(const package1::behavior::ConstPtr &msg);
 
     //Robot movement
     void move_robot(package1::behavior& msg);

@@ -41,7 +41,7 @@
         pkg="gazebo_ros"
         type="spawn_model"
         args="-file $(find irobotcreate)/models/irobot/model_blinky.sdf -sdf -model Blinky -x -3 -y 0 -z 0.5"/>
-    <node name ="$(anon arbiter)" pkg="package1" type="g_arbiter"/>
+    <node name ="$(anon arbiter)" pkg="package1" type="g_arbiter" output="screen"/>
     <node name ="$(anon wander)" pkg="package1" type="g_wander"/>
     <node name ="$(anon avoid)" pkg="package1" type="g_avoid"/>
     <node name ="$(anon opencv)" pkg="package1" type="opencvTest" args="blinky"/>

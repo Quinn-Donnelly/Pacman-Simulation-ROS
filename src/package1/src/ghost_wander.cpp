@@ -26,13 +26,13 @@ void Behavior_Wander::process_behavior() {
         case TURN_LEFT:
             ROS_DEBUG("Performing Action: TURN_LEFT");
             msg_move.active = true;
-            msg_move.vel_turn = WANDER_VELOCITY;
+            msg_move.vel_turn = WANDER_TURN;
             msg_move.vel_fw = WANDER_VELOCITY;
             break;
         case TURN_RIGHT:
             ROS_DEBUG("Performing Action: TURN_RIGHT");
             msg_move.active = true;
-            msg_move.vel_turn = -WANDER_VELOCITY;
+            msg_move.vel_turn = -WANDER_TURN;
             msg_move.vel_fw = WANDER_VELOCITY;
             break;
         case MOVE_FORWARD:
