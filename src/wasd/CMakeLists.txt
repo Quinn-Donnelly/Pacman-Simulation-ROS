@@ -195,10 +195,10 @@ add_executable(wander
 		src/wander.cpp
 		include/wasd/wander.h)
 target_link_libraries(wander ${catkin_LIBRARIES})
-add_dependencies(wander class_exercises_generate_messages_cpp)
+add_dependencies(wander wasd_generate_messages_cpp)
 
 add_executable(arbiter 
 		src/arbiter.cpp
 		include/wasd/arbiter.h)
 target_link_libraries(arbiter ${catkin_LIBRARIES})
-add_dependencies(arbiter class_exercises_generate_messages_cpp)
+add_dependencies(arbiter wasd_generate_messages_cpp)
