@@ -1,12 +1,12 @@
-#ifndef CLASS_HOMEWORK_WANDER_H_H
-#define CLASS_HOMEWORK_WANDER_H_H
-
-#define BH_WANDER_RATE 30
-#define WANDER_VELOCITY 2
+#ifndef PACMAN_WANDER_H
+#define PACMAN_WANDER_H
 
 #include "ros/ros.h"
 #include <termios.h>
-#include "wasd/behavior.h"
+#include "package1/behavior.h"
+
+#define BH_WANDER_RATE 30
+#define WANDER_VELOCITY 2
 
 class Behavior_Wander {
 

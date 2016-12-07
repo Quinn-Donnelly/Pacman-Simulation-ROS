@@ -1,8 +1,9 @@
-#include "pacman_arbiter.h"
+#include "ghost_arbiter.h"
 
 Arbiter::Arbiter() {
     //Set subscriptions & advertisement
     this->sub_bh_wander = this->nh.subscribe("/behavior/wander", 1, &Arbiter::cb_bh_wander, this);
+    this->sub_bh_avoid = this->nh.subscribe("/behavior/avoid", 1, &Arbiter::cb_bh_avoid, this);
     this->pub_vel = this->nh.advertise<geometry_msgs::Twist>("/irobot/cmd_vel", 1);
 }
 
@@ -19,6 +20,13 @@ void Arbiter::process_behaviors() {
     else {
         stop_robot();
     }
+}
+
+void Arbiter::cb_bh_avoid(const package1::behavior::ConstPtr &msg) {
+    if (msg->active) {
+        this->behavior_queue.push(std::pair<int, package1::behavior>(PRIORITY_AVOID, *msg));
+    }
+    ROS_DEBUG("Arbiter: Avoid(%s) Fw: %.1f Turn: %.1f", msg->active ? "on" : "off", msg->vel_fw, msg->vel_turn);
 }
 
 void Arbiter::cb_bh_wander(const package1::behavior::ConstPtr &msg) {

@@ -1,7 +1,7 @@
 #include "pacman_wander.h"
 
 Behavior_Wander::Behavior_Wander() {
-	this->pub_arbiter = this->nh.advertise<wasd::behavior>("/behavior/wander",1);
+	this->pub_arbiter = this->nh.advertise<package1::behavior>("/behavior/wander",1);
 }
 
 char Behavior_Wander::getch() {
@@ -45,7 +45,7 @@ char Behavior_Wander::getch() {
 
 void Behavior_Wander::process_behavior() {
 	char c = getch();
-	wasd::behavior msg_move;
+	package1::behavior msg_move;
 	msg_move.active = false;
     msg_move.vel_fw = 0;
     msg_move.vel_turn = 0;
@@ -58,12 +58,10 @@ void Behavior_Wander::process_behavior() {
 		ROS_DEBUG("Performing Action: TURN_LEFT");
 		msg_move.active = true;
         msg_move.vel_turn = WANDER_VELOCITY;
-        msg_move.vel_fw = WANDER_VELOCITY;
 	} else if(c=='d' || c=='D') {
 		ROS_DEBUG("Performing Action: TURN_RIGHT");
 		msg_move.active = true;
         msg_move.vel_turn = -WANDER_VELOCITY;
-        msg_move.vel_fw = WANDER_VELOCITY;
 	}
 	this->pub_arbiter.publish(msg_move);
 }

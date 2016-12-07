@@ -202,3 +202,21 @@ add_executable(p_arbiter
 		include/package1/pacman_arbiter.h)
 target_link_libraries(p_arbiter ${catkin_LIBRARIES})
 add_dependencies(p_arbiter package1_generate_messages_cpp)
+
+add_executable(g_wander 
+    src/ghost_wander.cpp
+    include/package1/ghost_wander.h)
+target_link_libraries(g_wander ${catkin_LIBRARIES})
+add_dependencies(g_wander package1_generate_messages_cpp)
+
+add_executable(g_arbiter 
+    src/ghost_arbiter.cpp
+    include/package1/ghost_arbiter.h)
+target_link_libraries(g_arbiter ${catkin_LIBRARIES})
+add_dependencies(g_arbiter package1_generate_messages_cpp)
+
+add_executable(g_avoid 
+    src/ghost_avoid.cpp
+    include/package1/ghost_avoid.h)
+target_link_libraries(g_avoid ${catkin_LIBRARIES})
+add_dependencies(g_avoid package1_generate_messages_cpp)
