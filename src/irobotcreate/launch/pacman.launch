@@ -17,7 +17,7 @@
             pkg="gazebo_ros"
             type="spawn_model"
             args="-file $(find irobotcreate)/models/irobot/model_pacman.sdf -sdf -model PacMan -x 3 -y 0 -z 0.5 -Y -1.5"/>
-        <node name ="tf_broadcast" pkg="irobotcreate" type="tf_broadcast"/>
+        <node name ="$(anon arbiter)"  pkg="package1" type="p_arbiter"/>
     </group>
 
 
@@ -27,7 +27,10 @@
         pkg="gazebo_ros"
         type="spawn_model"
         args="-file $(find irobotcreate)/models/irobot/model_inky.sdf -sdf -model Inky -x -4 -y 4 -z 0.5"/>
-    <node name ="tf_broadcast" pkg="irobotcreate" type="tf_broadcast"/>
+    <node name ="$(anon arbiter)" pkg="package1" type="g_arbiter"/>
+    <node name ="$(anon wander)" pkg="package1" type="g_wander"/>
+    <node name ="$(anon avoid)" pkg="package1" type="g_avoid"/>
+    <node name ="$(anon opencv)" pkg="package1" type="opencvTest" args="inky"/>
     </group>
 
 
@@ -37,7 +40,10 @@
         pkg="gazebo_ros"
         type="spawn_model"
         args="-file $(find irobotcreate)/models/irobot/model_blinky.sdf -sdf -model Blinky -x -3 -y 0 -z 0.5"/>
-    <node name ="tf_broadcast" pkg="irobotcreate" type="tf_broadcast"/>
+    <node name ="$(anon arbiter)" pkg="package1" type="g_arbiter"/>
+    <node name ="$(anon wander)" pkg="package1" type="g_wander"/>
+    <node name ="$(anon avoid)" pkg="package1" type="g_avoid"/>
+    <node name ="$(anon opencv)" pkg="package1" type="opencvTest" args="blinky"/>
     </group>
 
 
@@ -47,7 +53,10 @@
         pkg="gazebo_ros"
         type="spawn_model"
         args="-file $(find irobotcreate)/models/irobot/model_clyde.sdf -sdf -model Clyde -x -4 -y -4 -z 0.5"/>
-    <node name ="tf_broadcast" pkg="irobotcreate" type="tf_broadcast"/>
+    <node name ="$(anon arbiter)" pkg="package1" type="g_arbiter"/>
+    <node name ="$(anon wander)" pkg="package1" type="g_wander"/>
+    <node name ="$(anon avoid)" pkg="package1" type="g_avoid"/>
+    <node name ="$(anon opencv)" pkg="package1" type="opencvTest" args="clyde"/>
     </group>
 
 </launch>

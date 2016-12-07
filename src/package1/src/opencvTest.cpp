@@ -2,6 +2,7 @@
 #include <image_transport/image_transport.h>
 #include <opencv2/highgui/highgui.hpp>
 #include <cv_bridge/cv_bridge.h>
+#include <string>
 
 void imageCallback(const sensor_msgs::ImageConstPtr& msg)
 {
@@ -23,7 +24,8 @@ int main(int argc, char **argv)
   cv::namedWindow("view");
   cv::startWindowThread();
   image_transport::ImageTransport it(nh);
-  image_transport::Subscriber sub = it.subscribe("/blinky/irobot/camera/image_raw", 1, imageCallback);
+  std::string node_name = argv[1];
+  image_transport::Subscriber sub = it.subscribe("/" + node_name + "/irobot/camera/image_raw", 1, imageCallback);
   ros::spin();
   cv::destroyWindow("view");
 }
