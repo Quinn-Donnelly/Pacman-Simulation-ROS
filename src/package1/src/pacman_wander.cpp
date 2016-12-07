@@ -1,7 +1,7 @@
 #include "pacman_wander.h"
 
 Behavior_Wander::Behavior_Wander() {
-	this->pub_arbiter = this->nh.advertise<package1::behavior>("/behavior/wander",1);
+	this->pub_arbiter = this->nh.advertise<package1::behavior>("behavior/wander",1);
 }
 
 char Behavior_Wander::getch() {
@@ -77,7 +77,6 @@ int main(int argc, char** argv){
 
 	while(ros::ok()){
 		bh_wander.process_behavior();
-		ROS_INFO("Sending message...");
 
 		ros::spinOnce();
 		loop_rate.sleep();

@@ -5,7 +5,7 @@ Behavior_Avoid::Behavior_Avoid() {
 												&Behavior_Avoid::left_cb_laser, this);
 	this->sub_right_laser = this->nh.subscribe("irobot/right_distance_scan", 1, 
 												&Behavior_Avoid::right_cb_laser, this);
-	this->pub_arbiter = this->nh.advertise<package1::behavior>("/behavior/avoid", 1);
+	this->pub_arbiter = this->nh.advertise<package1::behavior>("behavior/avoid", 1);
 }
 
 void Behavior_Avoid::left_cb_laser (const sensor_msgs::LaserScan::ConstPtr& msg) {

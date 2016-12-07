@@ -17,7 +17,9 @@
             pkg="gazebo_ros"
             type="spawn_model"
             args="-file $(find irobotcreate)/models/irobot/model_pacman.sdf -sdf -model PacMan -x 3 -y 0 -z 0.5 -Y -1.5"/>
-        <node name ="tf_broadcast" pkg="irobotcreate" type="tf_broadcast"/>
+
+        <node name ="$(anon arbiter)"  pkg="package1" type="p_arbiter"/>
+        <node name ="$(anon wander)"  pkg="package1" type="p_wander"/>
     </group>
 
 

@@ -67,14 +67,14 @@ set(irobotcreate_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(irobotcreate_SOURCE_PREFIX /home/quinn/Documents/groupProject/src/irobotcreate)
-  set(irobotcreate_DEVEL_PREFIX /home/quinn/Documents/groupProject/devel)
+  set(irobotcreate_SOURCE_PREFIX /home/dhroiden/Documents/college/3rdSem/introRobo/pacman/src/irobotcreate)
+  set(irobotcreate_DEVEL_PREFIX /home/dhroiden/Documents/college/3rdSem/introRobo/pacman/devel)
   set(irobotcreate_INSTALL_PREFIX "")
   set(irobotcreate_PREFIX ${irobotcreate_DEVEL_PREFIX})
 else()
   set(irobotcreate_SOURCE_PREFIX "")
   set(irobotcreate_DEVEL_PREFIX "")
-  set(irobotcreate_INSTALL_PREFIX /home/quinn/Documents/groupProject/install)
+  set(irobotcreate_INSTALL_PREFIX /home/dhroiden/Documents/college/3rdSem/introRobo/pacman/install)
   set(irobotcreate_PREFIX ${irobotcreate_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(irobotcreate_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/quinn/Documents/groupProject/src/irobotcreate/include " STREQUAL " ")
+if(NOT "/home/dhroiden/Documents/college/3rdSem/introRobo/pacman/src/irobotcreate/include " STREQUAL " ")
   set(irobotcreate_INCLUDE_DIRS "")
-  set(_include_dirs "/home/quinn/Documents/groupProject/src/irobotcreate/include")
+  set(_include_dirs "/home/dhroiden/Documents/college/3rdSem/introRobo/pacman/src/irobotcreate/include")
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})
@@ -103,7 +103,7 @@ if(NOT "/home/quinn/Documents/groupProject/src/irobotcreate/include " STREQUAL "
         message(FATAL_ERROR "Project 'irobotcreate' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  Ask the maintainer 'lucas <lucas@todo.todo>' to fix it.")
       endif()
     else()
-      message(FATAL_ERROR "Project 'irobotcreate' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/quinn/Documents/groupProject/src/irobotcreate/${idir}'.  Ask the maintainer 'lucas <lucas@todo.todo>' to fix it.")
+      message(FATAL_ERROR "Project 'irobotcreate' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/dhroiden/Documents/college/3rdSem/introRobo/pacman/src/irobotcreate/${idir}'.  Ask the maintainer 'lucas <lucas@todo.todo>' to fix it.")
     endif()
     _list_append_unique(irobotcreate_INCLUDE_DIRS ${include})
   endforeach()
@@ -122,7 +122,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/quinn/Documents/groupProject/devel/lib;/home/quinn/Documents/groupProject/devel/lib;/opt/ros/indigo/lib)
+    foreach(path /home/dhroiden/Documents/college/3rdSem/introRobo/pacman/devel/lib;/home/dhroiden/Documents/college/3rdSem/introRobo/pacman/devel/lib;/opt/ros/indigo/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

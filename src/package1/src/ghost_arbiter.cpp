@@ -2,9 +2,9 @@
 
 Arbiter::Arbiter() {
     //Set subscriptions & advertisement
-    this->sub_bh_wander = this->nh.subscribe("/behavior/wander", 1, &Arbiter::cb_bh_wander, this);
-    this->sub_bh_avoid = this->nh.subscribe("/behavior/avoid", 1, &Arbiter::cb_bh_avoid, this);
-    this->pub_vel = this->nh.advertise<geometry_msgs::Twist>("/irobot/cmd_vel", 1);
+    this->sub_bh_wander = this->nh.subscribe("behavior/wander", 1, &Arbiter::cb_bh_wander, this);
+    this->sub_bh_avoid = this->nh.subscribe("behavior/avoid", 1, &Arbiter::cb_bh_avoid, this);
+    this->pub_vel = this->nh.advertise<geometry_msgs::Twist>("irobot/cmd_vel", 1);
 }
 
 void Arbiter::process_behaviors() {

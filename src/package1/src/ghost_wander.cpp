@@ -6,7 +6,7 @@ Behavior_Wander::Behavior_Wander(double prob_left, double prob_right, double pro
     this->prob_left = prob_left;
     this->prob_right = prob_right;
     this->prob_forward = prob_forward;
-    this->pub_arbiter = this->nh.advertise<package1::behavior>("/behavior/wander", 1);
+    this->pub_arbiter = this->nh.advertise<package1::behavior>("behavior/wander", 1);
 }
 
 void Behavior_Wander::set_action_probabilities(double prob_left, double prob_right, double prob_forward) {
