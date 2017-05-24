@@ -57,12 +57,12 @@ void Behavior_Wander::process_behavior() {
 	} else if (c=='a' || c=='A') {
 		ROS_DEBUG("Performing Action: TURN_LEFT");
 		msg_move.active = true;
-		msg_move.vel_fw = WANDER_VELOCITY-1.75;
+		msg_move.vel_fw = WANDER_VELOCITY-0.75;
         msg_move.vel_turn = WANDER_VELOCITY;
 	} else if(c=='d' || c=='D') {
 		ROS_DEBUG("Performing Action: TURN_RIGHT");
 		msg_move.active = true;
-		msg_move.vel_fw = WANDER_VELOCITY-1.75;
+		msg_move.vel_fw = WANDER_VELOCITY-0.75;
         msg_move.vel_turn = -WANDER_VELOCITY;
 	} else if (c=='s' || c=='S') {
 		ROS_DEBUG("Performing Action: MOVE_BACKWARD");

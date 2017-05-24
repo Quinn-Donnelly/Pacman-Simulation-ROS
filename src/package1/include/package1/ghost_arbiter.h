@@ -7,10 +7,10 @@
 #include "package1/behavior.h"
 #include "geometry_msgs/Twist.h"
 
-#define BH_ARBITER_RATE 10
+#define BH_ARBITER_RATE 30
 #define PRIORITY_WANDER 0
 #define PRIORITY_AVOID 1
-#define PRIORITY_OFFSET 3
+#define PRIORITY_OFFSET 2
 
 //comparison function for priority queue
 //function is outside of class because it was simpler

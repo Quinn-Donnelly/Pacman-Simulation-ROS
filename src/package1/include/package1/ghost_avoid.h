@@ -2,7 +2,7 @@
 #define GHOST_AVOID_H
 
 #define BH_AVOID_RATE 30
-#define AVOID_VELOCITY 2
+#define AVOID_VELOCITY 1
 
 #include "ros/ros.h"
 #include "sensor_msgs/LaserScan.h"

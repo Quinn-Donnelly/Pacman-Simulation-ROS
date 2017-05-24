@@ -27,40 +27,19 @@ void imageCallback(const sensor_msgs::ImageConstPtr& msg)
     cv::cvtColor(cv_bridge::toCvShare(msg, "bgr8")->image, hsv_image, cv::COLOR_BGR2HSV);
 
     // Threshold the HSV image, keep only the red pixels
-    cv::Mat lower_red_hue_range;
-    cv::Mat upper_red_hue_range;
-    cv::inRange(hsv_image, cv::Scalar(20, 100, 100), cv::Scalar(30, 255, 255), lower_red_hue_range);
-    bool whiteFound = false;
-    int first = 0;
-    int last = lower_red_hue_range.cols;
+    cv::Mat binaryImage;
+    cv::inRange(hsv_image, cv::Scalar(20, 100, 100), cv::Scalar(30, 255, 255), binaryImage);
 
-    for(int y = 0; y < lower_red_hue_range.rows; y++)
-    {
-      for(int x = 0; x < lower_red_hue_range.cols; x++)
-      {
-          if (lower_red_hue_range.at<cv::Vec3b>(x,y)[0] == 255 && lower_red_hue_range.at<cv::Vec3b>(x,y)[1] == 255 && lower_red_hue_range.at<cv::Vec3b>(x,y)[2] == 255)
-          {
-            if(!whiteFound){
-              first = x;
-              whiteFound = true;
-            } else {
-              last = x;
-            }
-          }
-      }
-      if(whiteFound){break;}
+    cv::Mat locations;   // output, locations of non-zero pixels
+    cv::findNonZero(binaryImage, locations);
+    // access pixel coordinates
+    for(int i = 0; i < locations.total(); ++i){
+      std::cout << "x = " << locations.at<cv::Point>(i).x << " y = " << locations.at<cv::Point>(i).y << std::endl;
+      publishOffset(locations.at<cv::Point>(i).x, true);
     }
 
-    std::cout << "first = " << first << " last = " << last << std::endl;
-
-    if(!whiteFound)
-    {
-      publishOffset(0, false);
-    } else{
-      publishOffset((last + first ) / 2 - lower_red_hue_range.cols / 2, true);
-    }
     cv::imshow("view", cv_bridge::toCvShare(msg, "bgr8")->image);
-    cv::imshow("view", lower_red_hue_range);
+    cv::imshow("view", binaryImage);
     cv::waitKey(30);
   }
   catch (cv_bridge::Exception& e)
@@ -75,12 +54,16 @@ int main(int argc, char **argv)
   ros::NodeHandle nh;
   cv::namedWindow("view");
 
+  image_transport::ImageTransport it(nh);
+  image_transport::Subscriber sub = it.subscribe("irobot/camera/image_raw", 1, imageCallback);
+  ros::Rate loop_rate(30);
   pub_arbiter = nh.advertise<package1::behavior>("behavior/offset", 1);
 
-  cv::startWindowThread();
-  image_transport::ImageTransport it(nh);
-  std::string node_name = argv[1];
-  image_transport::Subscriber sub = it.subscribe("/" + node_name + "/irobot/camera/image_raw", 1, imageCallback);
-  ros::spin();
+  while(ros::ok()) {
+    cv::startWindowThread();
+    ros::spinOnce();
+    loop_rate.sleep();
+  }
+
   cv::destroyWindow("view");
 }

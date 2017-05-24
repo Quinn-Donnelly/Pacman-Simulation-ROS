@@ -6,7 +6,7 @@
 #include "package1/behavior.h"
 
 #define BH_WANDER_RATE 30
-#define WANDER_VELOCITY 2
+#define WANDER_VELOCITY 1
 
 class Behavior_Wander {
 

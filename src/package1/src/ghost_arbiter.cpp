@@ -25,10 +25,14 @@ void Arbiter::process_behaviors() {
 
 void Arbiter::cb_bh_offset(const package1::behavior::ConstPtr &msg){
     if(msg->active){
-        std::cout << *msg << std::endl;
+        
         package1::behavior new_msg;
         int offset = msg->vel_turn;
-        new_msg.vel_turn = -0.003 * offset;
+        if(offset > 400){
+            new_msg.vel_turn = -0.5;
+        } else if (offset <= 400) {
+            new_msg.vel_turn = 0.5;
+        }
         new_msg.vel_fw = 1;
         this->behavior_queue.push(std::pair<int, package1::behavior>(PRIORITY_OFFSET, new_msg));
     }
